@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Anja Cvetković</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: white;
+      display: flex;
+      height: 100vh;
+    }
+    .sidebar {
+      width: 220px;
+      background-color: #1e1e1e;
+      padding-top: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-right: 1px solid #2c2c2c;
+    }
+    .sidebar h2 {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+    .nav-btn {
+      background: none;
+      border: none;
+      color: #ccc;
+      font-size: 16px;
+      padding: 12px 0;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .nav-btn:hover,
+    .nav-btn.active {
+      background-color: #333;
+      color: white;
+    }
+    .main {
+      flex: 1;
+      padding: 40px 20px 140px 20px;
+      overflow-y: auto;
+    }
+    h1 { text-align: center; margin-bottom: 30px; }
+    .form-group {
+      max-width: 500px;
+      margin: 0 auto 20px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1e1e1e;
+      color: white;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    .submit-btn {
+      display: block;
+      margin: 0 auto;
+      padding: 12px 24px;
+      background-color: #e11d48;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .submit-btn:hover { background-color: #be123c; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .image-container {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #1f1f1f;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: blur(12px);
+      transition: filter 0.5s ease;
+      flex-grow: 1;
+    }
+    .overlay-text {
+      position: absolute;
+      color: white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 10px black;
+      pointer-events: none;
+    }
+    .unlock-btn-small {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(103, 114, 229, 0.9);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 0 0 10px 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      z-index: 2;
+    }
+
+    .unlock-btn-small:hover {
+      background-color: rgba(84, 105, 212, 0.95);
+    }
+    .footer-unlock {
+      position: fixed;
+      bottom: 0;
+      left: 220px;
+      right: 0;
+      background-color: #1e1e1e;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 1px solid #333;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .footer-unlock span {
+      font-size: 18px;
+    }
+    .unlock-btn-big {
+      background-color: #22c55e;
+      color: white;
+      border: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .unlock-btn-big:hover {
+      background-color: #16a34a;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Anja Cvetković</h2>
+    <button class="nav-btn active" onclick="showPage('home')">Pocetna</button>
+    <button class="nav-btn" onclick="showPage('gallery')">Galerija</button>
+    <button class="nav-btn" onclick="showPage('wish')">Zelja</button>
+    <button class="nav-btn" onclick="showPage('live')">Uzivo</button>
+  </div>
+  <div class="main">
+    <div id="homePage">
+      <h1>Anja Cvetković</h1>
+      <p style="text-align: center; font-size: 18px; margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+        Dobrodošli na zvaničnu stranicu Anje Cvetković — prostor senzualnosti, samopouzdanja i ekskluzivnog sadržaja namenjenog odraslima (18+).<br><br>
+        Ovde vas očekuju profesionalno kreirane galerije, lične želje po meri i mogućnost zakazivanja posebnih viđenja uživo. Svi materijali su pažljivo birani kako bi pružili vrhunsko vizuelno i emocionalno iskustvo, uz potpunu diskreciju i sigurnost.<br><br>
+        Uživajte u sadržaju koji je istovremeno elegantan, autentičan i izrađen s pažnjom prema svakom detalju.
+      </p>
+    </div>
+    <div id="galleryPage" style="display: none;">
+      <h1>Premium Galerija</h1>
+      <div class="grid">
+        <div class="image-container">
+          <img src="https://i.postimg.cc/KvwsfMhx/image.png" alt="Slika 1">
+          <div class="overlay-text">Zaključano</div>
+          <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
+        </div>
+        <div class="image-container">
+          <img src="https://i.postimg.cc/ZRsLqGT4/image.png" alt="Slika 2">
+          <div class="overlay-text">Zaključano</div>
+          <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
+        </div>
+        <div class="image-container">
+          <img src="https://i.postimg.cc/xjW4ym2Y/image.png" alt="Slika 3">
+          <div class="overlay-text">Zaključano</div>
+          <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
+        </div>
+        <div class="image-container">
+          <img src="https://i.postimg.cc/rpnhd0JB/image.png" alt="Slika 3">
+          <div class="overlay-text">Zaključano</div>
+          <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
+        </div>
+        <div class="image-container">
+          <img src="https://i.postimg.cc/y87nvXrq/image.png" alt="Slika 3">
+          <div class="overlay-text">Zaključano</div>
+          <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
+        </div>
+        <div class="image-container">
+          <img src="https://i.postimg.cc/mrJYfQVg/image.png" alt="Slika 3">
+          <div class="overlay-text">Zaključano</div>
+          <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
+        </div>
+      </div>
+    </div>
+    <div id="wishPage" style="display: none;">
+      <h1>Pošalji želju</h1>
+      <form id="wishForm">
+        <div class="form-group">
+          <label for="wishKontakt">Kontakt:</label>
+          <input type="text" id="wishKontakt" name="wishKontakt" required>
+        </div>
+        <div class="form-group">
+          <label for="zelja">Tvoja želja:</label>
+          <textarea id="zelja" name="zelja" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Nastavi na plaćanje</button>
+      </form>
+    </div>
+    <div id="livePage" style="display: none;">
+      <h1>Zakazi viđenje uživo</h1>
+      <form id="liveForm">
+        <div class="form-group">
+          <label for="ime">Ime:</label>
+          <input type="text" id="ime" name="ime" required>
+        </div>
+        <div class="form-group">
+          <label for="godine">Godine:</label>
+          <input type="number" id="godine" name="godine" required>
+        </div>
+        <div class="form-group">
+          <label for="kontakt">Kontakt:</label>
+          <input type="tel" id="kontakt" name="kontakt" required>
+        </div>
+        <div class="form-group">
+          <label for="poruka">Poruka:</label>
+          <textarea id="poruka" name="poruka" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="trajanje">Izaberite trajanje viđenja:</label>
+          <select id="trajanje" name="trajanje" required>
+            <option value="">-- Izaberi --</option>
+            <option value="sat">Sat vremena</option>
+            <option value="dva">Dva sata</option>
+            <option value="noc">Celu noć</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Zakazi viđenje uživo</button>
+      </form>
+    </div>
+  </div>
+  <div class="footer-unlock" id="unlockAllFooter" style="display: none;">
+    <span>🔐 Otključaj svih 48 videa i 168 slika</span>
+    <button class="unlock-btn-big" onclick="unlockAll()">Otključaj sve</button>
+  </div>
+  <script>
+    function unlockSingle() {
+      const stripeSingle = "https://buy.stripe.com/9AQ15wb2ggBP3PG003";
+      window.location.href = stripeSingle;
+    }
+    function unlockAll() {
+      const stripeAll = "https://buy.stripe.com/6oU14odqv7OXfZL8ra8k804";
+      window.location.href = stripeAll;
+    }
+    function showPage(page) {
+      const pages = ['homePage', 'galleryPage', 'wishPage', 'livePage'];
+      pages.forEach(p => document.getElementById(p).style.display = 'none');
+      document.getElementById(page + 'Page').style.display = 'block';
+      document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
+      const activeBtn = Array.from(document.querySelectorAll(".nav-btn")).find(btn => btn.innerText.toLowerCase().includes(page));
+      if (activeBtn) activeBtn.classList.add("active");
+      document.getElementById("unlockAllFooter").style.display = page === 'gallery' ? 'flex' : 'none';
+    }
+
+    document.getElementById("liveForm")?.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const ime = document.getElementById("ime").value;
+      const godine = document.getElementById("godine").value;
+      const kontakt = document.getElementById("kontakt").value;
+      const poruka = document.getElementById("poruka").value;
+      const trajanje = document.getElementById("trajanje").value;
+
+      const message = `📢 Novi zahtev za viđenje:\nIme: ${ime}\nGodine: ${godine}\nkontakt: ${kontakt}\nPoruka: ${poruka}\nTrajanje: ${trajanje}`;
+      const telegramBotToken = "7585609046:AAFhk9wy-Roqwg4RF7DJjoQFogtxYNuyDO0";
+      const telegramChatId = "7559572103";
+
+      fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: telegramChatId, text: message })
+      })
+      .then(() => {
+        alert("Informacije su poslate. Bićete preusmereni na plaćanje.");
+        let url = "https://buy.stripe.com/test_live_meet123";
+        if (trajanje === "sat") url = "https://buy.stripe.com/28EcN6cmrglt00Nazi8k807";
+        if (trajanje === "dva") url = "https://buy.stripe.com/8x29AU86b7OX5l75eY8k806";
+        if (trajanje === "noc") url = "https://buy.stripe.com/7sYeVe727d9h7tfdLu8k805";
+        window.location.href = url;
+      })
+      .catch(() => {
+        alert("Došlo je do greške prilikom slanja poruke na Telegram.");
+      });
+    });
+
+    document.getElementById("wishForm")?.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const kontakt = document.getElementById("wishKontakt").value;
+      const zelja = document.getElementById("zelja").value;
+      const message = `📢 Nova želja:\nKontakt: ${kontakt}\nŽelja: ${zelja}`;
+      const telegramBotToken = "7585609046:AAFhk9wy-Roqwg4RF7DJjoQFogtxYNuyDO0";
+      const telegramChatId = "7559572103";
+      fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: telegramChatId, text: message })
+      })
+      .then(() => {
+        alert("Želja poslata. Bićete preusmereni na plaćanje.");
+        window.location.href = "https://buy.stripe.com/7sYcN64TZ0mv00N4aU8k809";
+      })
+      .catch(() => {
+        alert("Došlo je do greške prilikom slanja poruke na Telegram.");
+      });
+    });
+  </script>
+</body>
+</html>
