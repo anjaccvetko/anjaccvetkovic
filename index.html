@@ -134,18 +134,16 @@
       background-color: rgba(84, 105, 212, 0.95);
     }
     .footer-unlock {
-      position: fixed;
-      bottom: 0;
-      left: 220px;
-      right: 0;
+      grid-column: span 3; /* zauzmi sve 3 kolone */
       background-color: #1e1e1e;
       padding: 20px;
+      margin-top: 10px;
       display: flex;
       justify-content: center;
       align-items: center;
-      border-top: 1px solid #333;
       gap: 15px;
       flex-wrap: wrap;
+      border-radius: 10px;
     }
     .footer-unlock span {
       font-size: 18px;
@@ -182,9 +180,9 @@
         Uživajte u sadržaju koji je istovremeno elegantan, autentičan i izrađen s pažnjom prema svakom detalju.
       </p>
     </div>
-    <div id="galleryPage" style="display: none;">
-      <h1>Premium Galerija</h1>
-      <div class="grid">
+      <div class="main" id="galleryPage" style="display: none;">
+        <h1>Premium Galerija</h1>
+        <div class="grid">
         <div class="image-container">
           <img src="https://i.postimg.cc/KvwsfMhx/image.png" alt="Slika 1">
           <div class="overlay-text">Zaključano</div>
@@ -215,8 +213,15 @@
           <div class="overlay-text">Zaključano</div>
           <button class="unlock-btn-small" onclick="unlockSingle()">🔓 Otključaj sadržaj</button>
         </div>
+        <div class="footer-unlock" id="unlockAllFooter">
+          <span>🔐 Otključaj svih 48 videa i 168 slika</span>
+          <button class="unlock-btn-big" onclick="unlockAll()">Otključaj sve</button>
+        </div>
       </div>
     </div>
+
+
+    
     <div id="wishPage" style="display: none;">
       <h1>Pošalji želju</h1>
       <form id="wishForm">
@@ -262,10 +267,6 @@
         <button type="submit" class="submit-btn">Zakazi viđenje uživo</button>
       </form>
     </div>
-  </div>
-  <div class="footer-unlock" id="unlockAllFooter" style="display: none;">
-    <span>🔐 Otključaj svih 48 videa i 168 slika</span>
-    <button class="unlock-btn-big" onclick="unlockAll()">Otključaj sve</button>
   </div>
   <script>
     function unlockSingle() {
