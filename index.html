@@ -128,6 +128,47 @@
     button.submit-btn:hover {
       background-color: #be123c;
     }
+
+  .review-card {
+    background-color: #1f1f1f;
+    padding: 12px;
+    border-radius: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .review-card .avatar {
+    background-color: #3b82f6;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  .stars {
+    font-size: 14px;
+    color: gold;
+    opacity: 0.9;
+  }
+
+  @media (min-width: 600px) {
+    #reviewGrid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 900px) {
+    #reviewGrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
   </style>
 </head>
 <body>
@@ -135,6 +176,7 @@
     <button class="tab-btn active" onclick="showTab('gallery')">Galerija</button>
     <button class="tab-btn" onclick="showTab('live')">Uživo</button>
     <button class="tab-btn" onclick="showTab('wish')">Želja</button>
+    <button class="tab-btn" onclick="showTab('reviews')">Recenzije</button> <!-- NOVO -->
   </div>
 
   <div class="section active" id="gallery">
@@ -245,6 +287,116 @@
       <button type="submit" class="submit-btn">Nastavi na plaćanje</button>
     </form>
   </div>
+
+  <!-- SEKCIJA: Recenzije - Responsive sa zvezdicama pored imena -->
+  <div class="section" id="reviews">
+    <h2 style="text-align: center;">Recenzije korisnika</h2>
+    <div style="display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 20px;" id="reviewGrid">
+
+      <div class="review-card">
+        <div class="avatar">N</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Nikola</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Diskretno i tačno. Sve pohvale!</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">M</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Milan</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Brza organizacija i sve po dogovoru.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">S</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Stefan</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Profesionalno i diskretno, sve preporuke.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">L</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Lazar</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Sve po dogovoru, komunikacija odlična.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">U</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Uroš</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Odličan izgled, sve kao na slikama.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">D</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Dejan</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Vrhunski odnos i sve je prošlo glatko.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">A</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Aleksa</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Lepa energija i veoma prijatna osoba.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">V</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Vladimir</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Diskretno, tačno, vredi svaku paru.</p>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="avatar">B</div>
+        <div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <strong>@Bojan</strong>
+            <span class="stars">⭐️⭐️⭐️⭐️</span>
+          </div>
+          <p>Iskreno, nadmašilo očekivanja.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
 
   <script>
     function showTab(tab) {
